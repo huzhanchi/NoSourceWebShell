@@ -25,13 +25,17 @@
 ## "du..du"
 
 curl("webshell.php")
+
 wait_for(mean_delay * 3)
+
 curl("webshell.php")
 
 ## "du.du"
 
 curl("webshell.php");
+
 nop;
+
 curl("webshell.php");
 
 ## 完整性纠正
