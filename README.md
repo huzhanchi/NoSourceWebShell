@@ -1,7 +1,9 @@
 # 总体思路
 当前一些webshell查杀高级的一些会基于污点传播理论。
 
+`
 污点源标记  -->  污点传递 -->  敏感函数汇聚点检查
+`
 
 污点外部来源有很多途径：get，post，cookie，测信通道，dns等等。
 
@@ -18,7 +20,7 @@
 7. webshell.php 将du协议数据转换为01 二进制
 8. 命令执行
 
-#client端伪代码：
+# client端伪代码：
 
 ## "du..du"
 
@@ -37,7 +39,7 @@ curl("webshell.php");
 如果两次请求因为网络或者其他原因导致延时，协议转换出错，客户端简单粗暴丢弃整个会话，重新开始。
 
 #webshell.php 伪代码：
-
+```
 du_queue = ()
 session_end = false
 last_time = null
@@ -60,6 +62,7 @@ if  session_end
     response.print("session end")
 else 
     response.print("ok") 
+```
 
 # 总结
 
